@@ -7,20 +7,13 @@ class SingletonStub { use SingletonTrait; }
 
 class SingletonTraitTest extends TestCase
 {
-
-    /**
-    * @dataProvider singletonStubProvider
-    */
-    public function testSingleton(SingletonStub $instance)
+    public function testConstructAndSingleton()
     {
-        $singleton = $instance::singleton();
-        $this->assertSame($instance, $singleton);
-    }
+        $newInstance = new SingletonStub();
+        $singleton = $newInstance::singleton();
+        $this->assertNotSame($newInstance, $singleton);
 
-    public function singletonStubProvider()
-    {
-        return [
-            [SingletonStub::singleton()]
-        ];
+        $sameAsSingleton = $singleton::singleton();
+        $this->assertSame($singleton, $sameAsSingleton);
     }
 }

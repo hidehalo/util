@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="vendor/autoload.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         preserveGlobalState="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         syntaxCheck="true"
+         colors="true"
+         verbose="true">
+
+    <testsuites>
+        <testsuite name="Generator Unit Tests">
+            <directory suffix="Test.php">Generator/tests</directory>
+        </testsuite>
+        <testsuite name="Logger Unit Tests">
+            <directory suffix="Test.php">Logger/tests</directory>
+        </testsuite>
+        <testsuite name="Pool Unit Tests">
+            <directory suffix="Test.php">Pool/tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">Generator/src/</directory>
+            <exclude>
+                <directory suffix=".php">Generator/tests/</directory>
+                <file>Generator/tests/</file>
+            </exclude>
+
+            <directory suffix=".php">Logger/src/</directory>
+            <exclude>
+                <directory suffix=".php">Logger/tests/</directory>
+                <file>Logger/tests/</file>
+            </exclude>
+
+            <directory suffix=".php">Pool/src/</directory>
+            <exclude>
+                <directory suffix=".php">Pool/tests/</directory>
+                <file>Pool/tests/</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

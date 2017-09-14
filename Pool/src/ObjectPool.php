@@ -1,6 +1,5 @@
 <?php
-
-namespace Hidehalo\Db\Util;
+namespace Hidehalo\Util\Pool;
 
 class ObjectPool implements ObjectPoolInterface
 {

@@ -25,9 +25,14 @@ interface ObjectPoolInterface
     /**
      * @param $size
      *
-     * @return mixed
+     * @return void
      */
     public function setSize($size);
+
+    /**
+     * @return integer
+     */
+     public function getSize();
 
     /**
      * @return int
@@ -38,6 +43,11 @@ interface ObjectPoolInterface
      * @return bool
      */
     public function isFull();
+
+    /**
+     * @return bool
+     */
+    public function isEmpty();
 
     /**
      * @return bool

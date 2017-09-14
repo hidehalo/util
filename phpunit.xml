@@ -17,13 +17,13 @@
 
     <testsuites>
         <testsuite name="Generator Unit Tests">
-            <directory suffix="Test.php">Generator/tests</directory>
+            <directory suffix="Test.php">Generator/tests/</directory>
         </testsuite>
         <testsuite name="Logger Unit Tests">
-            <directory suffix="Test.php">Logger/tests</directory>
+            <directory suffix="Test.php">Logger/tests/</directory>
         </testsuite>
         <testsuite name="Pool Unit Tests">
-            <directory suffix="Test.php">Pool/tests</directory>
+            <directory suffix="Test.php">Pool/tests/</directory>
         </testsuite>
     </testsuites>
 

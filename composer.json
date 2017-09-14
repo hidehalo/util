@@ -28,16 +28,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Hidehalo\\Util\\Logger": "Logger/src",
-            "Hidehalo\\Util\\Generator": "Generator/src",
-            "Hidehalo\\Util\\Pool": "Pool/src"
+            "Hidehalo\\Util\\Logger\\": "Logger/src",
+            "Hidehalo\\Util\\Generator\\": "Generator/src",
+            "Hidehalo\\Util\\Pool\\": "Pool/src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Hidehalo\\Util\\Logger\\Test": "Logger/tests",
-            "Hidehalo\\Util\\Generator\\Test": "Generator/tests",
-            "Hidehalo\\Util\\Pool\\Test": "Logger/tests"
+            "Hidehalo\\Util\\Logger\\Test\\": "Logger/tests",
+            "Hidehalo\\Util\\Generator\\Test\\": "Generator/tests",
+            "Hidehalo\\Util\\Pool\\Test\\": "Logger/tests"
         }
     },
     "scripts": {

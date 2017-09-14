@@ -64,6 +64,14 @@ class ObjectPool implements ObjectPoolInterface
         $this->size = $size;
     }
 
+     /**
+     * @return integer
+     */
+    public function getSize() 
+    {
+        return $this->size;
+    }
+
     /**
      * @return bool
      */
@@ -81,6 +89,14 @@ class ObjectPool implements ObjectPoolInterface
     }
 
     /**
+     * @return bool
+     */
+     public function isEmpty()
+     {
+         return $this->count() <=0;
+     }
+
+    /**
      * @param $object
      *
      * @return mixed
@@ -88,7 +104,6 @@ class ObjectPool implements ObjectPoolInterface
     public function remove($object)
     {
         $tmp = $this->objects[spl_object_hash($object)];
-        GC::singleton()->register($tmp);
         unset($this->objects[spl_object_hash($object)]);
 
         return $tmp;
@@ -100,7 +115,6 @@ class ObjectPool implements ObjectPoolInterface
     public function drain()
     {
         $tmp = $this->objects;
-        GC::singleton()->register($tmp);
         foreach ($this->objects as $object) {
             // @codeCoverageIgnoreStart
             $this->remove($object);

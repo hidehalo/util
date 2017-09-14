@@ -1,6 +1,8 @@
 <?php
 namespace Hidehalo\Util\Pool;
 
+use Hidehalo\Util\Generator\SingletonTrait;
+
 class HashPool implements PoolResolverInterface
 {
     use SingletonTrait;

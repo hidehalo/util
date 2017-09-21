@@ -27,4 +27,4 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## License
 
-The GNU GENERAL PUBLIC LICENSE Version 3 (GNUv3). Please see [License File](LICENSE) for more information.
+The GNU GENERAL PUBLIC LICENSE Version 3 (GPLv3.0). Please see [License File](LICENSE) for more information.

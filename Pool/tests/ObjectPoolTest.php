@@ -92,9 +92,20 @@ class ObjectPoolTest extends TestCase
      * @param int                 $size
      * @param stdClass            $obj
      */
-    public function testGet(ObjectPoolInterface $pool, $size, $obj)
+    public function testGetThrowException(ObjectPoolInterface $pool, $size, $obj)
     {
         $pool->get();
+    }
+
+    /**
+     * @dataProvider objectPoolProvider
+     *
+     * @param ObjectPoolInterface $pool
+     * @param int                 $size
+     * @param stdClass            $obj
+     */
+    public function testGet(ObjectPoolInterface $pool, $size, $obj)
+    {
         $pool->dispose($obj);
         $objSto = $pool->get();
         $this->assertEquals($objSto, $obj);
@@ -125,6 +136,43 @@ class ObjectPoolTest extends TestCase
     {
         $empty = $pool->isEmpty();
         $this->assertTrue($empty);
+    }
+
+    /**
+     * @dataProvider objectPoolProvider
+     *
+     * @param ObjectPoolInterface $pool
+     * @param int                 $size
+     * @param stdClass            $obj
+     */
+    public function testCount(ObjectPoolInterface $pool, $size, $obj)
+    {
+        $count = $pool->count();
+        $this->assertEquals(0, $count);
+        $pool->dispose($obj);
+        $count = $pool->count();        
+        $this->assertEquals(1, $count);
+    }
+
+    /**
+     * @dataProvider objectPoolProvider
+     *
+     * @param ObjectPoolInterface $pool
+     * @param int                 $size
+     * @param stdClass            $obj
+     */
+    public function testTraversable(ObjectPoolInterface $pool, $size, $obj)
+    {
+        $size = 5;
+        $pool->setSize($size);
+        for ($i = 0; $i < $size; $i++) {
+            $other = new stdClass();
+            $pool->dispose($other);
+        }
+        $this->assertEquals($size, $pool->count());
+        foreach ($pool as $hash => $object) {
+            $this->assertTrue($pool->contain($object));
+        }
     }
 
     /**

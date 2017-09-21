@@ -1,6 +1,9 @@
 <?php
 namespace Hidehalo\Util\Pool;
 
+use Countable;
+use Iterator;
+
 class ObjectPool implements ObjectPoolInterface
 {
     /**
@@ -13,6 +16,7 @@ class ObjectPool implements ObjectPoolInterface
     private $objects;
 
     /**
+     * @codeCoverageIgnore
      * @param int $size
      */
     public function __construct($size = 1)
@@ -104,6 +108,7 @@ class ObjectPool implements ObjectPoolInterface
     public function remove($object)
     {
         $tmp = $this->objects[spl_object_hash($object)];
+        $this->objects[spl_object_hash($object)] = null;
         unset($this->objects[spl_object_hash($object)]);
 
         return $tmp;
@@ -130,5 +135,45 @@ class ObjectPool implements ObjectPoolInterface
     public function count()
     {
         return count($this->objects);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function current()
+    {
+        return current($this->objects);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function next()
+    {
+        return next($this->objects);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function key()
+    {
+        return key($this->objects);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function valid()
+    {
+        return key($this->objects) !== null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function rewind()
+    {
+        return reset($this->objects);
     }
 }

@@ -1,7 +1,10 @@
 <?php
 namespace Hidehalo\Util\Pool;
 
-interface ObjectPoolInterface
+use Countable;
+use Iterator;
+
+interface ObjectPoolInterface extends Countable, Iterator
 {
     /**
      * @param $object
@@ -33,11 +36,6 @@ interface ObjectPoolInterface
      * @return integer
      */
      public function getSize();
-
-    /**
-     * @return int
-     */
-    public function count();
 
     /**
      * @return bool

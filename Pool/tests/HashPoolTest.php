@@ -63,6 +63,26 @@ class HashPoolTest extends TestCase
     }
 
     /**
+     * @param PoolResolverInterface $resolver
+     * @param string                $name
+     * @dataProvider connPoolProvider
+     */
+    public function testTraversable(PoolResolverInterface $resolver, $name)
+    {
+        $size = 5;
+        for ($i = 0; $i < $size; $i++) {
+            $names[] = $name.$i;
+            $resolver->getPool($name.$i);
+        }
+        $counter = 0;
+        foreach ($resolver as $id => $pool) {
+            $counter++;
+            $this->assertInstanceOf(ObjectPoolInterface::class, $pool);
+        }
+        $this->assertEquals($size, $counter);
+    }
+
+    /**
      * @return array
      */
     public function connPoolProvider()

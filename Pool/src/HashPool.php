@@ -2,8 +2,9 @@
 namespace Hidehalo\Util\Pool;
 
 use Hidehalo\Util\Generator\SingletonTrait;
+use Iterator;
 
-class HashPool implements PoolResolverInterface
+class HashPool implements PoolResolverInterface, Iterator
 {
     use SingletonTrait;
 
@@ -29,27 +30,27 @@ class HashPool implements PoolResolverInterface
     }
 
     /**
-     * @param $name
+     * @param $id
      *
      * @return ObjectPoolInterface
      */
-    public function getPool($name)
+    public function getPool($id)
     {
-        if (!$this->hasPool($name)) {
-            $this->pools[$name] = new ObjectPool($this->size ?: self::DEFAULT_SIZE);
+        if (!$this->hasPool($id)) {
+            $this->pools[$id] = new ObjectPool($this->size ?: self::DEFAULT_SIZE);
         }
 
-        return $this->pools[$name];
+        return $this->pools[$id];
     }
 
     /**
-     * @param $name
+     * @param $id
      *
      * @return bool
      */
-    public function hasPool($name)
+    public function hasPool($id)
     {
-        return isset($this->pools[$name]);
+        return isset($this->pools[$id]);
     }
 
     /**
@@ -75,6 +76,47 @@ class HashPool implements PoolResolverInterface
         }
         $this->pools = null;
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function current()
+    {
+       return current($this->pools);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function next()
+    {
+        return next($this->pools);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function key()
+    {
+        return key($this->pools);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function valid()
+    {
+        return key($this->pools) !== null;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function rewind()
+    {
+        return reset($this->pools);
+    }
+
 
     /**
      * @codeCoverageIgnore

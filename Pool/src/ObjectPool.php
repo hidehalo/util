@@ -68,9 +68,9 @@ class ObjectPool implements ObjectPoolInterface
         $this->size = $size;
     }
 
-     /**
-     * @return integer
-     */
+    /**
+    * @return integer
+    */
     public function getSize()
     {
         return $this->size;

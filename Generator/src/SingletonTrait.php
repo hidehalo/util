@@ -21,14 +21,14 @@ trait SingletonTrait
     /**
      * @inheritDoc
      */
-    final function __wakeup()
+    final public function __wakeup()
     {
     }
 
     /**
      * @inheritDoc
      */
-    final function __clone()
+    final public function __clone()
     {
     }
 }

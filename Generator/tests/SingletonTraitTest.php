@@ -3,7 +3,11 @@ namespace Hidehalo\Util\Generator\Test;
 
 use Hidehalo\Util\Generator\SingletonTrait;
 use PHPUnit\Framework\TestCase;
-class SingletonStub { use SingletonTrait; }
+
+class SingletonStub
+{
+    use SingletonTrait;
+}
 
 class SingletonTraitTest extends TestCase
 {

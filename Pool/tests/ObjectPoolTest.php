@@ -150,7 +150,7 @@ class ObjectPoolTest extends TestCase
         $count = $pool->count();
         $this->assertEquals(0, $count);
         $pool->dispose($obj);
-        $count = $pool->count();        
+        $count = $pool->count();
         $this->assertEquals(1, $count);
     }
 

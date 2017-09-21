@@ -10,7 +10,7 @@
         "php"
     ],
     "homepage": "https://github.com/hidehalo/util",
-    "license": "GNUv3",
+    "license": "GPL-3.0",
     "authors": [
         {
             "name": "hidehalo",
@@ -40,8 +40,8 @@
     },
     "scripts": {
         "test": "vendor/bin/phpunit -d memory_limit=1024M --coverage-text",
-        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
-        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 */src */tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 */src */tests"
     },
     "extra": {
         "branch-alias": {

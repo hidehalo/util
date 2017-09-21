@@ -82,7 +82,7 @@ class HashPool implements PoolResolverInterface, Iterator
      */
     public function current()
     {
-       return current($this->pools);
+        return current($this->pools);
     }
 
     /**

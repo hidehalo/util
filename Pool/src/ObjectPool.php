@@ -71,7 +71,7 @@ class ObjectPool implements ObjectPoolInterface
      /**
      * @return integer
      */
-    public function getSize() 
+    public function getSize()
     {
         return $this->size;
     }
@@ -95,10 +95,10 @@ class ObjectPool implements ObjectPoolInterface
     /**
      * @return bool
      */
-     public function isEmpty()
-     {
-         return $this->count() <=0;
-     }
+    public function isEmpty()
+    {
+        return $this->count() <=0;
+    }
 
     /**
      * @param $object

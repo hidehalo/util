@@ -35,7 +35,7 @@ interface ObjectPoolInterface extends Countable, Iterator
     /**
      * @return integer
      */
-     public function getSize();
+    public function getSize();
 
     /**
      * @return bool

@@ -33,7 +33,7 @@
             "Hidehalo\\Util\\Ds\\": "DS/src"
         },
         "files": [
-            "DS/fn.php"
+            "DS/src/fn.php"
         ]
     },
     "autoload-dev": {

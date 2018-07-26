@@ -9,72 +9,41 @@ namespace Hidehalo\Util\Ds\Heap;
 class MinHeap extends Heap
 {
     /**
+     * @codeCoverageIgnore
      * @inheritDoc
      */
-    public function compare($a, $b)
+    protected function compare($a, $b)
     {
-        if ($a > $b) {
-            return 1;
+        if ($a < $b) {
+            return self::PRI_HIGHER;
         }
 
-        return 0;
+        return self::PRI_LOWER;
     }
 
-    /**
-     * Extract max from heap
-     *
-     * @return mixed
-     */
-    public function extractMax()
+    public function getMin()
     {
-        if ($this->size <= 0) {
-            return false;
-        }
-        if ($this->size == 1) {
-            $this->size--;
-
-            return $this->arr[0];
-        }
-    
-        $root = $this->arr[0];
-        $this->arr[0] = $this->arr[$this->size-1];
-        $this->size--;
-        $this->heapify($this->size, 0);
-    
-        return $root;
+        return $this->root();
     }
 
-    /**
-     * @todo impl
-     */
-    public function insert()
+    public function extractMin()
     {
+        return $this->extractRoot();
+    }
+
+    public function insertKey($value)
+    {
+        $this->insert($value);
     }
 
     public function decreaseKey($i, $value)
     {
-        $arr[$i] = $value;
-        while ($i!=0 && $this->compare($arr[($i-1)/2], $arr[$i])) {
-            $parent = ($i-1)/2;
-            $this->swap($arr[$i], $arr[$parent]);
-            $i = $parent;
-        }
+        $this->rearrange($i, $value);
     }
 
-    /**
-     * Undocumented function
-     *
-     * @return mixed
-     */
-    public function getMax()
+    public function deleteKey($i)
     {
-        return isset($this->heap->arr[0])? $this->heap->arr[0] :false;
-    }
-
-    /**
-     * @todo impl
-     */
-    public function delete()
-    {
+        $this->decreaseKey($i, PHP_INT_MIN);
+        $this->extractMin();
     }
 }

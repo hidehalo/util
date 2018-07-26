@@ -6,6 +6,8 @@
  */
 namespace Hidehalo\Util\Generator;
 
+use RuntimeException;
+
 trait SingletonTrait
 {
     /**
@@ -28,6 +30,7 @@ trait SingletonTrait
      */
     final public function __wakeup()
     {
+        throw new RuntimeException("Singleton could not be unserialized");
     }
 
     /**
@@ -35,5 +38,6 @@ trait SingletonTrait
      */
     final public function __clone()
     {
+        throw new RuntimeException("Singleton could not be cloned");
     }
 }

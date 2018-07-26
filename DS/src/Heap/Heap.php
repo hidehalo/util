@@ -6,6 +6,10 @@
  */
 namespace Hidehalo\Util\Ds\Heap;
 
+if (!defined('PHP_INT_MIN')) {
+    define('PHP_INT_MIN', ~PHP_INT_MAX);
+}
+
 abstract class Heap
 {
     /**

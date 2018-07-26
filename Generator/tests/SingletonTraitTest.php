@@ -1,4 +1,9 @@
 <?php
+/**
+ * @author hidehalo <tianchen_cc@yeah.net>
+ * @copyright 2018 hidehlao
+ * @license gpl-3.0
+ */
 namespace Hidehalo\Util\Generator\Test;
 
 use Hidehalo\Util\Generator\SingletonTrait;

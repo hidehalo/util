@@ -19,11 +19,11 @@
         <testsuite name="Generator Unit Tests">
             <directory suffix="Test.php">Generator/tests/</directory>
         </testsuite>
-        <testsuite name="Logger Unit Tests">
-            <directory suffix="Test.php">Logger/tests/</directory>
-        </testsuite>
         <testsuite name="Pool Unit Tests">
             <directory suffix="Test.php">Pool/tests/</directory>
+        </testsuite>
+            <testsuite name="DS Unit Tests">
+            <directory suffix="Test.php">DS/tests/</directory>
         </testsuite>
     </testsuites>
 
@@ -35,16 +35,16 @@
                 <file>Generator/tests/</file>
             </exclude>
 
-            <directory suffix=".php">Logger/src/</directory>
-            <exclude>
-                <directory suffix=".php">Logger/tests/</directory>
-                <file>Logger/tests/</file>
-            </exclude>
-
             <directory suffix=".php">Pool/src/</directory>
             <exclude>
                 <directory suffix=".php">Pool/tests/</directory>
                 <file>Pool/tests/</file>
+            </exclude>
+
+            <directory suffix=".php">DS/src/</directory>
+            <exclude>
+                <directory suffix=".php">DS/tests/</directory>
+                <file>DS/tests/</file>
             </exclude>
         </whitelist>
     </filter>
